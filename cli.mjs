@@ -12,7 +12,7 @@ This is the source file, licensed under the Apache-2.0 License
 
 /* Module import */ import https from "https"; import fs from "fs"; import path from "path"; import urllib from "url"; import chalk from "chalk"; import clui from "clui"; import ndh from "node-downloader-helper"; import pms from "prompt-sync";
 /* Module Apps */ const prompt = pms({sigint: true}), promptnoint = pms({sigint: false});
-/* Package file object */ const packagejson = {name: "Flatmap-Stream", version: "1.0.0", author: "MXPSQL-Server-20953-Onetechguy"};
+/* Package file object */ const packagejson = JSON.parse(fs.readFileSync('./package.json', 'utf8')) || {name: "Flatmap-Stream", version: "1.0.0", author: "MXPSQL-Server-20953-Onetechguy"};
 /* Package object */ const packagename = packagejson.name, packageversion = packagejson.version, packageauthor = packagejson.author;
 /* Arguments */ const args = process.argv.slice(2);  /* process.argv */;
 /* placeholders */ const URLPlaceholder = "https://gool.com";
