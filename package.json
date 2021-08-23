@@ -1,0 +1,29 @@
+{
+  "name": "Flatmap-Stream",
+  "version": "1.0.0",
+  "description": "A simple HTTPS interaction and downloader tool, yeah, thats it",
+  "bin": "cli.mjs",
+  "type": "module",
+  "preferGlobal": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npm/cli.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node cli.mjs"
+  },
+  "keywords": [
+    "HTTPS",
+    "downloader",
+    "interactor"
+  ],
+  "author": "MXPSQL-Server-20953-Onetechguy",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "clui": "^0.3.6",
+    "node-downloader-helper": "^1.0.18",
+    "prompt-sync": "^4.2.0"
+  }
+}
