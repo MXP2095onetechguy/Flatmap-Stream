@@ -10,7 +10,7 @@ This is the source file, licensed under the Apache-2.0 License
 */
 
 
-/* Module import */ import https from "https"; import fs from "fs"; import path from "path"; import urllib from "url"; import chalk from "chalk"; import clui from "clui"; import ndh from "node-downloader-helper"; import pms from "prompt-sync";
+/* Module import */ import https from "https"; import fs from "fs"; import path from "path"; import urllib from "url"; import chalk from "chalk"; import clui from "clui"; import ndh from "node-downloader-helper"; import pms from "prompt-sync"; import nwc from "networkcheck";
 /* Module Apps */ const prompt = pms({sigint: true}), promptnoint = pms({sigint: false});
 /* Package file object */ const packagejson = {name: "Flatmap-Stream", version: "1.0.0", author: "MXPSQL-Server-20953-Onetechguy"};
 /* Package object */ const packagename = packagejson.name, packageversion = packagejson.version, packageauthor = packagejson.author;
@@ -90,6 +90,25 @@ for(var i = 0; i < args.length; i++){
 }
 
 // logic
+// netcheck logic
+var r1, r2;
+
+nwc.NS_CheckInternet("www.google.com", function(s){
+    r1 = s;
+});
+
+nwc.NS_CheckInternet("example.com", function(s){
+    r2 = s;
+});
+
+if(r1 != nwc.NS_STATE.GoodNetwork && r2 != nwc.NS_STATE.GoodNetwork)
+{
+    console.log(chalk.red("No network connection dectected!"));
+    process.exit(3);
+}
+
+
+// mode operation logic and insider's inside logic
 if(Mode == "DL"){ // downloader
 
     console.log("Downloader mode");
